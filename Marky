@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <title>Pride</title>
+    <style>
+        /* Navbar Styling */
+        .navbar {
+            background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        .navbar-brand img {
+            border-radius: 5px;
+        }
+        .nav-link {
+            color: white !important;
+            font-weight: bold;
+        }
+        .nav-link:hover {
+            color: yellow !important;
+            text-shadow: 0 0 10px white;
+        }
+
+        /* Search Bar & Buttons */
+        .btn-outline-success, .btn-signin, .btn-signup {
+            color: white;
+            border-color: white;
+            transition: all 0.3s ease;
+        }
+        .btn-outline-success:hover, .btn-signin:hover, .btn-signup:hover {
+            background-color: white;
+            color: #7873f5;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+        }
+        .btn-signin, .btn-signup {
+            margin-left: 10px;
+        }
+
+        /* Glowing Headings */
+        h1, h2, .btn-outline-success {
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+        }
+
+        /* Carousel Styling */
+        .carousel-item img {
+            filter: brightness(70%);
+            height: 80vh;
+            object-fit: cover;
+        }
+        .carousel-caption {
+            background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .carousel-caption h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            font-family: 'Georgia', serif;
+            color: white;
+        }
+        .carousel-caption p {
+            font-size: 1.25rem;
+            color: white;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 60px 0;
+        }
+        .bg-secondary {
+            background-color: #6c757d !important;
+        }
+        .bg-light {
+            background-color: #f8f9fa !important;
+        }
+        .text-light {
+            color: #ffffff !important;
+        }
+        .text-start p {
+            line-height: 1.8;
+        }
+
+        /* Footer Styling */
+        footer {
+            background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Modal Styling */
+        .modal {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet, red);
+            background-size: 400%;
+            animation: rainbow 5s linear infinite;
+            padding: 20px;
+            border-radius: 8px;
+            width: 400px;
+            max-width: 90%;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.5);
+            text-align: center;
+            color: white;
+            text-shadow: 0 0 10px white, 0 0 20px rgba(255, 255, 255, 0.8);
+        }
+
+        @keyframes rainbow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .carousel-caption h1 {
+                font-size: 2rem;
+            }
+            .carousel-caption p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Pride_flag.png/800px-Pride_flag.png" alt="Pride Logo" width="100" height="40">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://www.nbcnews.com/nbc-out">News</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Members
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="https://www.facebook.com/search/top?q=mark%20galedo">Marky</a></li>
+                            <li><a class="dropdown-item" href="https://www.facebook.com/search/top/?q=kenzomarr%20iniego%20bringas">Kenzo</a></li>
+                            <li><a class="dropdown-item" href="https://www.facebook.com/search/top?q=ella%20esteban">Thea</a></li>
+                            <li><a class="dropdown-item" href="https://www.facebook.com/profile.php?id=61568626507553">Narlo</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Groups
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="https://epoa.eu/">EPOA</a></li>
+                            <li><a class="dropdown-item" href="https://www.usaprides.org/">USAP</a></li>
+                            <li><a class="dropdown-item" href="https://ilga.org/">ILGA</a></li>
+                            <li><a class="dropdown-item" href="https://www.fiertecanadapride.org/">FCP</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Events
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">
+                        <i class="bi bi-search"></i>
+                    </button>
+                </form>
+                <button class="btn btn-signin">Sign In</button>
+                <button class="btn btn-signup">Sign Up</button>
+            </div>
+        </div>
+    </nav>
+
+    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="data:image/png;base64,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" class="d-block w-100" alt="Pride Celebration Image 1" loading="lazy">
+            <div class="carousel-caption d-flex flex-column justify-content-center align-items-center h-100">
+                <h1>Welcome To Pride</h1>
+                <p>Join us in promoting a world where everyone is safe and free to express who they are. Let’s connect with communities, and celebrate gender inclusivity</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7ukazpaWyVikhb8u7IDINwSpqHEv_8D0fbw&s" class="d-block w-100" alt="Pride Celebration Image 2" loading="lazy">
+            <div class="carousel-caption d-flex flex-column justify-content-center align-items-center h-100">
+                <h1>Unity in Action</h1>
+                <p>Experience the power of unity and love.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVFuO_2G25fEFj9npwsvQ9bS6lG-OiMChInQ&s" class="d-block w-100" alt="Pride Celebration Image 3" loading="lazy">
+            <div class="carousel-caption d-flex flex-column justify-content-center align-items-center h-100">
+                <h1>Embracing Equality</h1>
+                <p>Stand with us for equality and justice.</p>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+     
+<section class="py-5 bg-light text-start">
+    <div class="container">
+        <p class="lead">
+            <strong>NOTE:</strong> Join us for an extraordinary celebration of love, acceptance, and community at our vibrant gathering where stories intertwine and friendships blossom. Experience a kaleidoscope of performances, heartfelt testimonials, and interactive activities designed to foster understanding and create lasting connections.
+        </p>
+    </div>
+</section>
+
+<section class="py-5 bg-secondary text-light text-start">
+    <div class="container">
+        <h2 class="mb-4 text-center">About Pride</h2>
+        <p class="mb-4">
+            Pride is a powerful feeling that stems from a deep sense of self-worth, accomplishment, and belonging. It can arise from personal achievements, the overcoming of challenges, or the recognition of one’s identity and values.
+        </p>
+    </div>
+</section>
+
+<section>
+    <div class="container py-5">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <h2 class="mb-4">Brief History of Pride</h2>
+                <p class="lead mb-4">Pride has its roots in the fight for LGBTQ+ rights, especially in response to discrimination and injustice. One key moment was the Stonewall Uprising in June 1969, when LGBTQ+ people, led largely by trans women of color like Marsha P. Johnson and Sylvia Rivera, resisted a police raid at the Stonewall Inn in New York City. This sparked a wave of activism and the birth of the modern Pride movement. The first Pride marches were held in 1970 to commemorate Stonewall and have since grown into worldwide celebrations of love, identity, and equality, while also continuing the push for civil rights and acceptance.</p>
+            </div>
+            <div class="col-md-6 text-center">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlbU9ZVCsvHnYlReoQlMGmsGRhz6mvRy7fWg&s" class="img-fluid rounded" alt="Join Us Image">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-5 bg-light text-start">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_ZsAuXMF-WBaKg1iyvZ0WjGYrDFTfNgevvg&s" class="img-fluid rounded" alt="Image 1">
+            </div>
+            <div class="col-md-4">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKQm1S3FL-Uv2A3IPHyc2F4hNH7C359Ws5nQ&s" class="img-fluid rounded" alt="Image 2">
+            </div>
+            <div class="col-md-4">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGojj1eW-5p3iobPw4nfIbGbomiQu0bRYizw&s" class="img-fluid rounded" alt="Image 3">
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<section class="py-5 bg-secondary text-light text-start">
+    <div class="container py-5 text-center">
+        <h2 class="mb-4">When and Where is Pride Month</h2>
+        <p class="lead mb-4">Pride Month is traditionally celebrated in June around the world, including in the United Kingdom. In 2025, Pride Month will take place from June 1st to June 30th. This extended period allows for a wide range of events, parades, marches, and discussions to take place, providing opportunities for LGBTQ+ individuals and their allies to come together and make their voices heard.</p>
+        <p class="lead mb-4">Titled LOV3LABAN 2025, the event is happening on June 28, Saturday. The venue was not officially announced, but Pride PH tagged Quezon Memorial Circle in their Instagram post.
+        </p> 
+    </div>
+</section>
+
+<section class="py-5 bg-light text-start">
+    <div class="container">
+        <h2 class="mb-4 text-center">The Importance of Celebrating LGBTQIA+</h2>
+        <p class="lead">
+            Celebrating LGBTQIA+ communities is important because it honors the diversity, strength, and resilience of people whose identities have often been marginalized or misunderstood. It creates spaces where individuals can feel seen, valued, and affirmed for who they are. Celebrations like Pride raise awareness, challenge stereotypes, and promote acceptance and equality. They also remind society of the ongoing struggles against discrimination and the work still needed to achieve full rights and inclusion. Most of all, celebrating LGBTQIA+ lives sends a powerful message that everyone deserves to live openly, love freely, and be proud of who they are.
+        </p>
+    </div>
+</section>
+
+<section class="py-5 bg-secondary text-light text-start">
+    <div class="container">
+        <h2 class="mb-4 text-center">Pride Organization Internationally</h2>
+        <p class="mb-4">
+            Many Pride organizations around the world work to support, celebrate, and advocate for the LGBTQIA+ community. Some of the most well-known include InterPride, an international network that connects Pride organizers globally and supports events in different countries. EuroPride is another major organization that hosts a pan-European Pride event each year in a different city. In Canada, there's Fierté Canada Pride, and in the United States, groups like NYC Pride and San Francisco Pride organize some of the largest celebrations. Across Asia, Taiwan Pride has become one of the biggest LGBTQIA+ events in the region. Each organization not only hosts parades and festivals but also plays a crucial role in education, advocacy, and creating safe spaces for LGBTQIA+ individuals worldwide.
+        </p>
+    </div>
+</section>
+
+<div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="https://inclusion.uci.edu/wp-content/uploads/2024/08/pride-month-celebrated-june-is-time-lgbtq-individuals-allies-come-together-promote-acceptance-equality-generated-with-ai-1024x683.jpg" class="d-block w-100" alt="Pride Celebration Image 1" loading="lazy">
+        <div class="carousel-caption d-flex flex-column justify-content-center align-items-center h-100">
+            <h1>Explore the Inclusive Organization</h1>
+            <p>Join us in promoting a world where everyone is safe and free to express who they are. Let’s connect with communities, and celebrate gender inclusivity</p>
+            <a class="btn btn-outline-success" href="https://www.interpride.org/" target="_blank" role="button">Discover Now</a>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="https://media-cldnry.s-nbcnews.com/image/upload/t_fit-560w,f_auto,q_auto:best/rockcms/2023-06/230625-pride-parade-nyc-jm-1408-b45d16.jpg" class="d-block w-100" alt="Pride Celebration Image 2" loading="lazy">
+        <div class="carousel-caption d-flex flex-column justify-content-center align-items-center h-100">
+            <h1>Join the 2025</h1>
+            <p>Join us in promoting a world where everyone is safe and free to express who they are. Let’s connect with communities, and celebrate gender inclusivity </p>
+            <a class="btn btn-outline-success" href="https://www.awarenessdays.com/awareness-days-calendar/pride-month-2025/#:~:text=In%202025%2C%20Pride%20Month%20will,and%20make%20their%20voices%20heard." target="_blank" role="button">Discover Now</a>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="https://www.interpride.org/wp-content/uploads/2023/01/InterPod-Cover-Art-2023-copy-1536x1536.jpg" class="d-block w-100" alt="Pride Celebration Image 3" loading="lazy">
+        <div class="carousel-caption d-flex flex-column justify-content-center align-items-center h-100">
+            <h1>Embracing Equality</h1>
+            <p>Stand with us for equality and justice.</p>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+ 
+
+<!-- Modal Structure -->
+<div class="modal fade" id="termsModal" tabindex="-1" aria-labelledby="termsModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="termsModalLabel">Terms and Conditions</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>
+          By using this website, you agree to the following terms and conditions. Please read them carefully before proceeding.
+        </p>
+        <ul>
+          <li>You agree to respect the rights and dignity of all individuals.</li>
+          <li>You will not use this website for any unlawful activities.</li>
+          <li>All content is for informational purposes only.</li>
+        </ul>
+        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">For More Information Click Here</a>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="acceptTermsCheckbox">
+          <label class="form-check-label" for="acceptTermsCheckbox">
+            I accept the terms and conditions.
+          </label>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="proceedButton" disabled>Proceed</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Show the modal automatically when the page loads
+  window.addEventListener('load', function () {
+    var termsModal = new bootstrap.Modal(document.getElementById('termsModal'));
+    termsModal.show();
+
+    // Add event listener to the "Proceed" button
+    document.getElementById('proceedButton').addEventListener('click', function () {
+      if (!this.disabled) {
+        termsModal.hide(); // Close the modal
+      }
+    });
+  });
+
+  // Enable the "Proceed" button only when the checkbox is checked
+  document.getElementById('acceptTermsCheckbox').addEventListener('change', function () {
+    document.getElementById('proceedButton').disabled = !this.checked;
+  });
+</script>
+
+<footer>
+    <p>&copy; 2025 Pride Organization. All rights reserved.</p>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+</body>
+</html>
