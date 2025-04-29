@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms and Conditions Modal</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+
+    .modal {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+
+    .modal-content {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      width: 400px;
+      max-width: 90%;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      text-align: center;
+    }
+
+    .modal-content h2 {
+      margin-top: 0;
+    }
+
+    .modal-content p {
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .buttons {
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-around;
+    }
+
+    .buttons button {
+      padding: 10px 20px;
+      font-size: 14px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .agree {
+      background-color: #007bff;
+      color: white;
+    }
+
+    .disagree {
+      background-color: #ccc;
+      color: black;
+    }
+  </style>
+</head>
+<body>
+  <div class="modal">
+    <div class="modal-content">
+      <h2>Terms and Conditions</h2>
+      <p>
+        Please read and accept our Terms and Conditions before using our
+        services. By clicking Agree, you confirm that you have read and
+        understood the terms.
+      </p>
+      <div class="buttons">
+        <button class="agree" onclick="closeModal(true)">Agree</button>
+        <button class="disagree" onclick="closeModal(false)">Disagree</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function closeModal(accepted) {
+      if (accepted) {
+        alert("You accepted the terms.");
+      } else {
+        alert("You did not accept the terms.");
+      }
+      document.querySelector(".modal").style.display = "none";
+    }
+  </script>
+</body>
+</html>
